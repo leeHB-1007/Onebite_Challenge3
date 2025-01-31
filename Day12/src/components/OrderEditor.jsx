@@ -22,7 +22,7 @@ const OrderEditor = () => {
     }
 
     alert(
-      `주문이 완료되었습니다 메뉴 : ${state.menu}, 주소 : ${state.address}, 요청사항: ${state.request}`
+      `주문이 완료되었습니다 메뉴 : ${order.menu}, 주소 : ${order.address}, 요청사항: ${order.request}`
     );
   };
 
@@ -35,7 +35,7 @@ const OrderEditor = () => {
         <div style={{ marginBottom: 5, fontSize: 14 }}>메뉴 선택</div>
         <select
           name="menu"
-          value={state.menu}
+          value={order.menu}
           onChange={onChangeState}
           style={{ width: 300, padding: 5 }}
         >
@@ -50,7 +50,7 @@ const OrderEditor = () => {
         <input
           ref={addrRef}
           name="address"
-          value={state.address}
+          value={order.address}
           onChange={onChangeState}
           style={{ width: 300, padding: 5 }}
           placeholder="주소) 서울특별시 xx동 .."
@@ -62,7 +62,7 @@ const OrderEditor = () => {
         </div>
         <textarea
           name="request"
-          value={state.request}
+          value={order.request}
           onChange={onChangeState}
           style={{ width: 300, padding: 5 }}
           placeholder="배달 요청사항을 써 주세요..."
