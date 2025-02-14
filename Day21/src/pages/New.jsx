@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Button from "../components/Button";
-import { replace, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MakeDiary from "../components/Editor";
 import { useContext } from "react";
 import { DiaryDispatchContext } from "../App";

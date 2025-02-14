@@ -54,24 +54,27 @@ export default function MakeDiary({onSubmit}) {
     emotionId: 0,
     content: "",
   });
+
+  const handleDataChange = (type, value) => {
+    setData((prev) => ({
+      ...prev,
+      [type]: type === 'date' ? new Date(value) : value
+    }));
+  };
+
   const onClickSubmitButton = () => {
     onSubmit(data);
   }
 
-  const handleDateChange = (e) => {
-    setData((prev) => ({ ...prev, date: new Date(e.target.value) })); 
-  };
-  const handleEmotionClick = (id) => {
-    setData((prev) => ({ ...prev, emotionId: id }));
-  };
-  const handleContentChange = (e) => {
-    setData((prev) => ({ ...prev, content: e.target.value }));
-  };
   return (
     <div className="Editor">
       <section className="Calender">
         <h4>오늘의 날짜</h4>
-        <input type="date" value={getStringedDate(data.date)} onChange={handleDateChange} />
+        <input 
+          type="date" 
+          value={getStringedDate(data.date)} 
+          onChange={(e) => handleDataChange('date', e.target.value)} 
+        />
       </section>
       <section className="SelectEmo">
         <h4>오늘의 감정</h4>
@@ -81,7 +84,7 @@ export default function MakeDiary({onSubmit}) {
               key={item.id}
               {...item}
               isSelected={item.id === data.emotionId}
-              onClick={() => handleEmotionClick(item.id)}
+              onClick={() => handleDataChange('emotionId', item.id)}
             />
           ))}
           {console.log(data)}
@@ -92,8 +95,11 @@ export default function MakeDiary({onSubmit}) {
         <textarea
           placeholder="오늘은 어땠나요?"
           value={data.content}
-          onChange={handleContentChange}
+          onChange={(e) => handleDataChange('content', e.target.value)}
         />
+        <div>
+            
+        </div>
       </section>
       <section className="button_section">
         <Button text={"취소하기"} onClick={() => nav(-1)}></Button>
