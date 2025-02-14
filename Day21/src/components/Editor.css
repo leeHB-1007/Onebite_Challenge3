@@ -1,0 +1,40 @@
+.Calender > h4 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.Calender > input,
+textarea {
+  border: none;
+  background-color: rgb(236, 236, 236);
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px 20px;
+}
+t
+.Editor {
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.Editor > section {
+  margin-bottom: 40px;
+}
+.EmotionList {
+  display: flex;
+  justify-content: space-around;
+  gap: 2%;
+}
+
+.InputDiary > textarea {
+  padding: 20px;
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+  box-sizing: border-box;
+  max-width: 600px;
+}
+
+.button_section {
+  display: flex;
+  justify-content: space-between;
+}
